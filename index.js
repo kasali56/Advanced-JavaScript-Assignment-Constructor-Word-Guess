@@ -8,13 +8,13 @@ function initialPrompt() {
     inquirer.prompt([{
         type: "confirm",
         name: "confirmation",
-        message: "Ready to play?"
+        message: "Ready to play Guess The South?"
     }]).then(function (answers) {
 
         // var runGame;
 
         if (answers.confirmation) {
-            var allTheWords = ["Chicago", "Prague", "Paris", "Amsterdam", "Orlando", "Singapore", "Bangkok"];
+            var allTheWords = ["H-Town", "Big Eazy", "Pimpin", "Dirty South", "Dade-County", "memephis", "Nashivilie"];
 
             // Randomly selects a word and uses the Word constructor to store it
             var runGame = function () {
@@ -47,7 +47,7 @@ function initialPrompt() {
                                 correctResponse(answers.inputVal);
                                 nextPrompt();
                             } else {
-                                console.log("Please choose a different letter.");
+                                console.log("Think of Words Used In The South.");
                                 displayWord(answers.inputVal);
                                 nextPrompt();
                             }
@@ -58,7 +58,7 @@ function initialPrompt() {
                     } else {
 
                         if ((allTheWords.length - 1) > 0) {
-                            console.log("You guessed the word! Onto the next one");
+                            console.log("You guessed the word! Please tell Me more");
                             allTheWords.splice(randomNum, 1);
                             runGame();
                         } else {
@@ -66,12 +66,12 @@ function initialPrompt() {
                             inquirer.prompt([{
                                 type: "confirm",
                                 name: "playAgain",
-                                message: "Congrats! That's all the words. You are so worldly! \n Play again?"
+                                message: "Congrats! That's all the words. You must Really Like the South! \n Play again?"
                             }]).then(function (answers) {
                                 if (answers.playAgain) {
                                     initialPrompt();
                                 } else {
-                                    console.log("Come back later!");
+                                    console.log("Come Bye!");
                                 }
                             });
                         }
@@ -109,7 +109,7 @@ function initialPrompt() {
                         inquirer.prompt([{
                             type: "confirm",
                             name: "playAgain",
-                            message: "GAME OVER! Play again?"
+                            message: "GAME OVER Playa! Play again or Nah?"
                         }]).then(function (answers) {
                             if (answers.playAgain) {
                                 console.log(wordConst);
@@ -129,7 +129,7 @@ function initialPrompt() {
             runGame();
 
         } else {
-            console.log("Come back later!");
+            console.log("Come Bye!");
         }
 
     });
